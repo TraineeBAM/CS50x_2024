@@ -1,0 +1,11 @@
+sort1 uses: Bubble
+
+How do you know?: sorted50000 ran in only 1.4sec, however Reversed and Random both took over 6sec. With sorted text the omega would be equal to N.
+
+sort2 uses: Merge
+
+How do you know?: Across all 50000 datasets this was the fastest algo by a factor of at least 100%. Across the random5000 dataset however that gap closed considerably.
+
+sort3 uses: Selection
+
+How do you know?: This algo performed consistantly across all 50000 datasets, it performed better than sort1 when the data was random or reversed, but considerably worse when that data was sorted.
