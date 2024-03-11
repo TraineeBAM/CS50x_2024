@@ -75,7 +75,7 @@ main {
 }
 
 #drop-area{
-    background-color: rgb(0, 0, 100);
+    background-color: rgba(0, 0, 100, 0.8);
     border: whitesmoke 3px solid;
     width: 30%;
     min-width: 300px;
@@ -93,7 +93,7 @@ main {
 }
 
 #file-explorer{
-    background-color: rgb(0, 0, 100);
+    background-color: rgba(0, 0, 100, 0.85);
     border: whitesmoke 3px solid;
     padding: 10px;
     border-radius: 25px;
