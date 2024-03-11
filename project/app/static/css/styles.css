@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    font-family: 'Oswald', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display:grid;
+    grid-template-rows: 20% 80%;
+    background-image:url(/project/app/static/images/background.jpg) ;
+    background-position: center;
+    background-size: cover;
+}
+
+header,
+section, 
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+}
+
+header {
+    border-bottom: solid whitesmoke 5px;
+    width: 60%;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 5em;
+}
+
+main {
+    display:grid;
+    grid-template-rows: 20% 70% 10%;
+}
+
+#about-privacy {
+    flex-direction: row;
+    gap: 5em;
+}
+
+#about-privacy>button{
+    width: 10%;
+    min-width: 70px;
+    height: 35%;
+    min-height: 40px;
+    font-size: 1.3em;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    background-color: rgb(0, 0, 100);
+    color: whitesmoke;
+    border: solid 2px whitesmoke;
+    border-radius: 25px;
+}
+
+#about-privacy>button:hover{
+    width: 13%;
+    height: 40%;
+}
+
+#file-upload{
+    justify-content: space-around;
+}
+
+#file-upload>h3{
+    font-size: 2em;
+}
+
+#drop-area{
+    background-color: rgb(0, 0, 100);
+    border: whitesmoke 3px solid;
+    width: 30%;
+    min-width: 300px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    border-radius: 25px;
+}
+
+#smaller-txt{
+    font-size: 0.6em;
+}
+
+#file-explorer{
+    background-color: rgb(0, 0, 100);
+    border: whitesmoke 3px solid;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 100px;
+}
+
+footer {
+    background-color: rgb(0, 0, 0);
+}
+
+a:visited, a{
+    color:whitesmoke;
+}
+
+#aboutInfo, 
+#privacyInfo{
+    display: none;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 0, 100);
+    padding: 20px;
+    border: 1px solid whitesmoke;
+    box-shadow: 0 0 150px 50px rgb(0, 89, 255);
+}
+
+#privacyInfo>strong{
+    text-decoration: underline;
+    font-size: 1.3em;
+}
+
+.closePopup{
+    width:25px;
+    height:25px;
+    font-size: 18px;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+.closePopup:hover{
+    color: rgb(255, 0, 0);
+}
