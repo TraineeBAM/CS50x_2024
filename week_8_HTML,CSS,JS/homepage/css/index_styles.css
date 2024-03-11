@@ -1,0 +1,67 @@
+body{
+    margin:0;
+    padding: 0;
+    border: 0;
+    height: 100vh;
+    background-image: url(../images/homepage-master_chief.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-rows: 60% 20% 10% 10%;
+}
+
+h1{
+    display: flex;
+    justify-self: center;
+    align-self: flex-end;
+    font-size: 100px;
+    color: rgb(0, 255, 106);
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1em;
+    padding: 20px;
+}
+
+button{
+    width: 10em;
+    height: 5em;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgb(0, 255, 106);
+    font-weight: bold;
+}
+
+.options{
+    display: flex;
+    margin-top: 5em;
+    gap: 50px;
+    justify-content: center;
+}
+
+footer{
+    display: flex;
+    color: rgb(0, 255, 106);
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 5px;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: white;
+}
+
+.audio-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+audio{
+    width: 300px;
+}

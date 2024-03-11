@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <script src="script.js" defer></script>
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the largest planet in our solar system?</h3>
+                <div id='parentContainer1'>
+                    <div class='incorrect'><button >Mars</button><br></div>
+                    <div class='correct'><button >Jupiter</button><br></div>
+                    <div class='incorrect'><button >Venus</button><br></div>
+                    <div class='incorrect'><button >Saturn</button><br></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is the name of the largest moon in our solar system?</h3>
+                <input id='userInput' type='text'><button id='submitBtn' type='button'>Check</button><br>
+                <div id='textGen'></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

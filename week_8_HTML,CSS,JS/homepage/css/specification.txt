@@ -1,0 +1,14 @@
+You should also create a text file, specification.txt, which lists the 10 HTML tags and 5 CSS properties you’ve used, 
+as well as a brief (one-sentence) description of how you chose to use JavaScript and Bootstrap.
+
+HTML tags:
+h1, h2, h3, p, div, audio, footer, a, button, form, table, tr, th, td...
+
+CSS properties:
+background-color, background-image, display, margin, color, height, width, grid-template, font-size...
+
+JavaScript:
+I chose to use JavaScript to generate a popup that let users know that the form had been submitted successfully.
+
+Bootstrap:
+Component positioning.

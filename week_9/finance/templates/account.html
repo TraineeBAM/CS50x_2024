@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+    <form action="/account" method="post">
+        <div class="mb-3">
+            <input autofocus class="form-control mx-auto w-auto" name="password" placeholder="Old Password" type="password">
+        </div>
+        <div class="mb-3">
+            <input autofocus class="form-control mx-auto w-auto" name="newPassword" placeholder="New Password" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="confirmPassword" placeholder="Confirm Password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+    <form action="/deposit" method="post" style="margin-top:50px">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="deposit" placeholder="Deposit value" type="number" min=1 max=1000000>
+        </div>
+        <button class="btn btn-primary" type="submit">Deposit</button>
+    </form>
+{% endblock %}
