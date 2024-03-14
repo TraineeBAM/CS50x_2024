@@ -17,9 +17,9 @@
             <button id="about">About</button>
                 <div id="aboutInfo">
                     <button class="closePopup">X</button>
-                    Welcome to <strong>SkillSift</strong> - Your Destination for Skill Analysis and Matching!<br>
-                    At SkillSift, our mission is to empower individuals by providing insightful skill analysis based on their resumes. We understand the importance of showcasing your unique strengths, and our platform is designed to help you uncover and highlight your key skills.<br>
-                    Whether you're exploring new career opportunities or aiming to enhance your professional profile, SkillSift is here to assist you on your journey. Upload your resume, and let us analyze and present your skills in a meaningful way.<br>
+                    Welcome to <strong>SkillSift</strong> - Your Destination for Skill Analysis and Matching!<br><br>
+                    At SkillSift, our mission is to empower individuals by providing insightful skill analysis based on their resumes. We understand the importance of showcasing your unique strengths, and our platform is designed to help you uncover and highlight your key skills.<br><br>
+                    Whether you're exploring new career opportunities or aiming to enhance your professional profile, SkillSift is here to assist you on your journey. Upload your resume, and let us analyze and present your skills in a meaningful way.<br><br>
                     <strong>SkillSift</strong> - Unleash Your Potential!
                 </div>
             <button id="privacy">Privacy</button>
@@ -44,9 +44,11 @@
             </div>
             <div id="file-explorer">
                 <p>Alternatively, navigate to your resume below:</p>
-                <input type="file" id="resumeInput" accept=".pdf, .doc, .docx, .txt">
+                <input type="file" id="resumeInput" accept=".pdf, .doc, .docx, .txt" onchange="handleFileSelect()">
                 <label for="resumeInput"></label>
+                <button id="removeFile">X</button>
             </div>
+            <button id="submit">Submit</button>
         </section>
         <footer>
             <p>&copy; 2024 SkillSift. All rights reserved.</p>
