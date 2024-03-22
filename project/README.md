@@ -24,3 +24,15 @@ The basic application flow is as below:
 * Learning to use spaCy NLP - I will need to train the model to find the SFIA skills in resume text.
 * This logic needs to live somewhere, I am considering turning my old gaming laptop into a server that will process resumes and return SFIA skills. This may need to be reevaluated at a later date and I'll use a cloud provider like AWS or Azure.
 
+#### Latest lessons:
+I think the resume parser I will use is https://github.com/iadityak/resume-parser?referral=top-free-speech-to-text-tools-apis-and-open-source-models
+This is a java function. To run it I navigate to the folder containing it and use "java -jar 'Resume Parser.jar'" which starts the server, then I can use:
+
+curl --request POST 'http://localhost:8081/upload' \
+--header 'Content-Type: multipart/form-data' \
+--form 'resume=@/home/brandontrainee/repos/training/CS50x_2024/project/training_data/resumes/Brandon_Maruna_Resume_2023(v2).docx'
+
+This will return a json response containing the various parts of the resume including the skills and work experience.
+
+Next I will use my resume_processing python function which uses spaCy NLP.
+My plan is to create a dictionary of all the SFIA skills and a brief description. I will then leverage the spaCy compare functionality and iterate through the resume skills and compare them with SFIA skills. If anything scores about 0.8 (may need to adjust this) we will say there is a good chance the user has this skill.
