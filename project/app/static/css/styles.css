@@ -12,7 +12,7 @@ body {
     height: 100vh;
     display:grid;
     grid-template-rows: 20% 80%;
-    background-image:url(/project/app/static/images/background.jpg) ;
+    background-image:url("../images/background.jpg");
     background-position: center;
     background-size: cover;
 }

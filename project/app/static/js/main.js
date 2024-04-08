@@ -87,14 +87,50 @@ submitBtn.addEventListener('click', function () {
     // Check that file-type user has uploaded is supported (.pdf, .docx, .doc, .txt)
     if (files && files.length > 0) {
         let supportedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'];
+        let maxFileSize = 1;
         
         if (!supportedTypes.includes(files[0].type)) {
             alert(`Only PDF, DOC, DOCX, and TXT supported. You uploaded ${files[0].type}`);
             removeFile();
-        } else {
-            alert('submitted!')
+        } 
+        else if ((files[0].size / 1000000) > maxFileSize){
+            alert(`File size exceeds ${maxFileSize}mb`);
             removeFile();
-        }} 
+            return;
+        }
+        // Create FormData object and append the file
+        const formData = new FormData();
+        const fileNameParts = files[0].name.split('.'); // Split filename and extension
+        const originalExtension = fileNameParts.pop(); // Get the original file extension
+        const newFileName = 'userResume.' + originalExtension; // Create the new filename with original extension
+        formData.append('userResume', files[0], newFileName); // Append file with new filename
+
+
+        // Send POST request to Flask endpoint
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Error uploading file');
+        })
+        .then(data => {
+            // Handle response from Flask if needed
+            console.log(data);
+            alert('Resume uploaded successfully!');
+            window.location.href = '/results'
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error uploading file');
+        })
+        .finally(() => {
+            removeFile(); // Clean up file input
+        });
+    }
     else {
         // Handle case when no file is selected
         alert('No file selected');

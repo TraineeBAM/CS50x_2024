@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Processed Skills</h1>
+    <ul>
+        {% for skill, details in skills_data.items() %}
+        <li><strong>{{ skill }}</strong>: Level - {{ details.level }}, Experience - {{ details.experience }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
