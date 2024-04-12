@@ -63,7 +63,6 @@ def display_results():
 
     elif request.method == 'GET':
         if skills_data:
-            print(skills_data)
             return render_template('results.html', skills_data=skills_data)
         else:
             return jsonify({'message': 'No skills data available'})

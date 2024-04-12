@@ -15,7 +15,7 @@ if (skillsData && skillsData.skills) {
                         <h5 class="card-symbol">${skillInfo.symbol}</h5>
                         <div class="card-info">
                         <p class="card-text">${skillInfo.definition}</p>
-                        </div>
+                        </d
                     </div>
                 </div>
             `;
