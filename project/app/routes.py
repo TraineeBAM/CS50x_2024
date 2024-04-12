@@ -1,6 +1,6 @@
 import os
 from app import app
-from flask import request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, flash, redirect, url_for, session
 from werkzeug.utils import secure_filename
 import subprocess
 
@@ -33,8 +33,10 @@ def upload_file():
         file.save(file_path)
 
         process_uploaded_resume(file_path)
+
+        os.remove(file_path)
         # Return a JSON response indicating success
-        return jsonify({'message': 'File uploaded successfully', 'filename': filename})
+        return jsonify({'message': 'File processed successfully', 'filename': filename})
 
     # Handle other HTTP methods if needed
     return jsonify({'error': 'Invalid request method'})
@@ -43,26 +45,27 @@ def process_uploaded_resume(file_path):
     # Call the resume_processing.py script with the uploaded resume path
     try:
         subprocess.run(['python3', RESUME_PROCESSING_SCRIPT, file_path], check=True)
+        pass
     except subprocess.CalledProcessError as e:
         print(f"Error executing resume_processing.py: {e}")
 
+skills_data = None
+
 @app.route('/results', methods=['GET', 'POST'])
 def display_results():
+    global skills_data  # Use the global variable inside the function
+
     if request.method == 'POST':
-        # Get the JSON data from the POST request
         data = request.get_json()
-
-        # Process the JSON data as needed
-        skills_data = data.get('skills', {})
-        # You can further process and extract specific information here
-
-        # Render the results page with the processed data
-        return render_template('results.html', skills_data=skills_data)
+        if data and 'user_skills_json' in data:
+            skills_data = data['user_skills_json']
+            return jsonify({'message': 'Skills data received and stored'})
 
     elif request.method == 'GET':
-        # Handle the GET request to display the results page
-        # You can perform any necessary actions here before rendering the page
-        return render_template('results.html')
+        if skills_data:
+            print(skills_data)
+            return render_template('results.html', skills_data=skills_data)
+        else:
+            return jsonify({'message': 'No skills data available'})
 
-    # Handle other HTTP methods if needed
-    return jsonify({'error': 'Invalid request method'})
+    return jsonify({'message': 'Invalid request'})

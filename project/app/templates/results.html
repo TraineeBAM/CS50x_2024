@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
+    <script src="../static/js/results.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
 </head>
 <body>
-    <h1>Processed Skills</h1>
-    <ul>
-        {% for skill, details in skills_data.items() %}
-        <li><strong>{{ skill }}</strong>: Level - {{ details.level }}, Experience - {{ details.experience }}</li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1><a href="/">SkillSift</a></h1>
+        <p>Results</p>
+    </header>
+    <div id="skillsContainer"></div>
+
+    <script>
+        // Pass skills_data to results.js
+        const skillsData = {{ skills_data | safe }};
+    </script>
 </body>
 </html>
