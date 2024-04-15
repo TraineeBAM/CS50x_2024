@@ -98,6 +98,11 @@ submitBtn.addEventListener('click', function () {
             removeFile();
             return;
         }
+
+        console.log('Showing loading elements');
+        document.querySelector('.loadingMask').style.display = 'block';
+        document.querySelector('.ring').style.display = 'block';
+
         // Create FormData object and append the file
         const formData = new FormData();
         const fileNameParts = files[0].name.split('.'); // Split filename and extension
@@ -128,6 +133,8 @@ submitBtn.addEventListener('click', function () {
             alert('Error uploading file');
         })
         .finally(() => {
+            document.querySelector('.loadingMask').style.display = 'none';
+            document.querySelector('.ring').style.display = 'none';
             removeFile(); // Clean up file input
         });
     }

@@ -25,4 +25,22 @@ if (skillsData && skillsData.skills) {
 } else {
     console.error('Skills data not available or invalid format');
 }
-// Now you can work with skillsData as needed
+
+function resetSkills() {
+    fetch('/reset-skills', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message); // Show reset message
+        location.reload();   // Reload the page after reset
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error resetting skills data');
+    });
+}

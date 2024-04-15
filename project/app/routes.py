@@ -65,6 +65,12 @@ def display_results():
         if skills_data:
             return render_template('results.html', skills_data=skills_data)
         else:
-            return jsonify({'message': 'No skills data available'})
+            return render_template('results.html')
 
     return jsonify({'message': 'Invalid request'})
+
+@app.route('/reset-skills', methods=['POST'])
+def reset_skills():
+    global skills_data
+    skills_data = None
+    return jsonify({'message': 'Skills data reset successfully'})

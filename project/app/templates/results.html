@@ -11,12 +11,18 @@
     <header>
         <h1><a href="/">SkillSift</a></h1>
         <p>Results</p>
+        <form id="reset-form">
+            <button type="button" onclick="resetSkills()">Reset Skills Data</button>
+        </form>
     </header>
+    {% if skills_data %}
     <div id="skillsContainer"></div>
-
+    {% else %}
+    <p id="noSkills">No skills data available.</p>
+    {% endif %}
     <script>
         // Pass skills_data to results.js
-        const skillsData = {{ skills_data | safe }};
+        const skillsData = {{ skills_data | safe }}
     </script>
 </body>
 </html>
