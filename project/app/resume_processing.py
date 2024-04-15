@@ -28,7 +28,7 @@ class UserSkills:
         self.skills = {}
 
     def add_skill(self, sfia_skill, similarity_score):
-        if similarity_score > 0.2:
+        if similarity_score > 0.905:
             if sfia_skill.name not in self.skills:
                 self.skills[sfia_skill.name] = {
                     "name": sfia_skill.name,
@@ -47,11 +47,9 @@ def process_resume(resume_file_path):
         
         # Extract the skills section from the response
         skills_data = parsed_data.get('data', {}).get('skills', [])
-        print(skills_data)
         summary_data = parsed_data.get('data', {}).get('summary', [])
-        print(summary_data)
         
-        # Extract text from dictionaries in skills_data and education_training_data
+        # Extract text from dictionaries in skills_data and summary_data
         skills_text = ' '.join(skill.get('KEY SKILLS', '') for skill in skills_data)
         summary_text = ' '.join(summary.get('PROFILE', '') for summary in summary_data)
         
